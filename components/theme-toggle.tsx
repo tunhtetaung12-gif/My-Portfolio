@@ -1,16 +1,18 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
+
+const emptySubscribe = () => () => {};
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return (
@@ -28,8 +30,16 @@ export function ThemeToggle() {
       title={`Switch to ${isDark ? "light" : "dark"} mode`}
       aria-label="Toggle theme"
     >
-      <Sun className={`w-4 h-4 text-amber-500 transition-transform duration-300 ${isDark ? "rotate-90 scale-0 absolute" : "rotate-0 scale-100"}`} />
-      <Moon className={`w-4 h-4 text-sky-400 transition-transform duration-300 ${isDark ? "rotate-0 scale-100" : "-rotate-90 scale-0 absolute"}`} />
+      <Sun
+        className={`w-4 h-4 text-amber-500 transition-transform duration-300 ${
+          isDark ? "rotate-90 scale-0 absolute" : "rotate-0 scale-100"
+        }`}
+      />
+      <Moon
+        className={`w-4 h-4 text-sky-400 transition-transform duration-300 ${
+          isDark ? "rotate-0 scale-100" : "-rotate-90 scale-0 absolute"
+        }`}
+      />
     </button>
   );
 }

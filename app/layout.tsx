@@ -14,8 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tun Htet Aung | Portfolio",
-  description: "Junior Software Engineer at Ace Plus Solutions. Graduated from Polytechnic University (Maubin).",
+  title: "Tun Htet Aung | Full-Stack Web Developer",
 };
 
 export default function RootLayout({
