@@ -4,7 +4,6 @@ import {
   Kanban,
   LayoutDashboard,
   Dumbbell,
-  HeartHandshake,
   Share2,
   CheckCircle2,
 } from "lucide-react";
@@ -18,7 +17,7 @@ interface ProjectItem {
   highlight: string;
   features: string[];
   tags: string[];
-  visualMockup: "tms" | "gms" | "rescue" | "foodshare";
+  visualMockup: "tms" | "gms" | "foodshare";
 }
 
 const projects: ProjectItem[] = [
@@ -57,23 +56,6 @@ const projects: ProjectItem[] = [
     visualMockup: "gms",
   },
   {
-    id: "rescue",
-    title: "Animal Rescue Center",
-    subtitle: "Intake Tracking, Medical Logs & Adoption Engine",
-    badge: "Full-Stack Schema & API",
-    imagePlaceholderText: "Rescue center web app UI",
-    highlight:
-      "Designed database schemas, project flows, and controller endpoints from scratch.",
-    features: [
-      "Engineered relational database schema with normalized foreign keys",
-      "Built RESTful controller endpoints with comprehensive validation rules",
-      "Animal intake flow with medical history and vaccination schedules",
-      "Adoption inquiry workflow with dynamic multi-criteria search filters",
-    ],
-    tags: ["PHP", "Laravel", "REST API Design", "MySQL", "Database Migrations"],
-    visualMockup: "rescue",
-  },
-  {
     id: "foodshare",
     title: "FoodShare Portal",
     subtitle: "Community Resource Allocation & Donation Feed",
@@ -110,8 +92,8 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* Clean, Simple 2x2 Grid of Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Clean 3-Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -232,33 +214,6 @@ export function ProjectsSection() {
                         <span className="text-[10px] px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">
                           Synchronized
                         </span>
-                      </div>
-                    </div>
-                  )}
-
-                  {project.visualMockup === "rescue" && (
-                    <div className="relative z-1 space-y-2 font-mono text-xs">
-                      <div className="p-2.5 rounded-lg bg-slate-900/90 border border-slate-800">
-                        <div className="flex items-center justify-between text-[11px] mb-2">
-                          <span className="text-sky-400 font-bold flex items-center gap-1.5">
-                            <HeartHandshake className="w-3.5 h-3.5" /> Rescue Intake & Medical Logs
-                          </span>
-                          <span className="text-[10px] text-slate-400">DB Schema v2.4</span>
-                        </div>
-                        <div className="grid grid-cols-2 gap-2 text-[10px]">
-                          <div className="p-1.5 rounded bg-slate-800 text-slate-300">
-                            <p className="text-emerald-400 font-bold">● Intake Complete</p>
-                            <p className="text-slate-400 mt-0.5">Golden Retriever (ID #842)</p>
-                          </div>
-                          <div className="p-1.5 rounded bg-slate-800 text-slate-300">
-                            <p className="text-sky-400 font-bold">● Medical Check OK</p>
-                            <p className="text-slate-400 mt-0.5">Vaccinations Verified</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="px-2.5 py-1.5 rounded bg-slate-900/80 border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
-                        <span>Endpoints: GET /api/v1/rescues · POST /adopt</span>
-                        <span className="text-emerald-400 font-semibold">Normalized FK</span>
                       </div>
                     </div>
                   )}

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Terminal, Menu, X, Mail } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
