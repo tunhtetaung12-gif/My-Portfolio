@@ -39,12 +39,6 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Typography & Bio */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Dev Environment Prompt Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 mb-6 shadow-xs">
-              <span className="flex h-2 w-2 rounded-full bg-sky-500 animate-pulse" />
-              <span className="text-sky-600 dark:text-sky-400 font-bold">ubuntu@aceplus:~$</span>
-              <span className="text-slate-500 dark:text-slate-400">./deploy.sh --role</span>
-            </div>
 
             {/* Candidate Name & Title */}
             <div className="space-y-2 mb-4">
